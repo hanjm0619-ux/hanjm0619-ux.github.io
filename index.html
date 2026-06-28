@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<!-- ╔════════════════════════════════════════════════════════╗
+     ║  여기 <title> 안의 글자가 브라우저 탭에 표시됩니다       ║
+     ╚════════════════════════════════════════════════════════╝ -->
+<title>한지민 · Robotics & AI</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+<style>
+  :root {
+    --ink:    #0d1117;   /* 배경(짙은 남색) */
+    --panel:  #151b24;   /* 카드 배경 */
+    --line:   #232c38;   /* 구분선 */
+    --text:   #e6edf3;   /* 본문 글자 */
+    --muted:  #8b97a7;   /* 흐린 글자 */
+    --accent: #f0a043;   /* 강조색(앰버) — 바꾸고 싶으면 이 한 줄만 수정 */
+    --mono:   'JetBrains Mono', monospace;
+    --display:'Space Grotesk', sans-serif;
+    --body:   'Inter', sans-serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--ink);
+    color: var(--text);
+    font-family: var(--body);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+
+  /* 상단 얇은 계기판 바 */
+  .topbar {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--muted);
+    border-bottom: 1px solid var(--line);
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    letter-spacing: 0.02em;
+  }
+  .topbar .dot { color: var(--accent); }
+
+  /* eyebrow 라벨(섹션 위 작은 글씨) */
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 14px;
+  }
+
+  /* ── HERO ── */
+  .hero { padding: 88px 0 72px; }
+  .hero h1 {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: clamp(40px, 8vw, 68px);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin-bottom: 20px;
+  }
+  .hero .lead {
+    font-size: clamp(16px, 2.4vw, 19px);
+    color: var(--muted);
+    max-width: 540px;
+  }
+  .hero .accent-name { color: var(--accent); }
+
+  /* 섹션 공통 */
+  section { padding: 56px 0; border-top: 1px solid var(--line); }
+  section h2 {
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: 24px;
+    margin-bottom: 18px;
+  }
+  p.about { color: var(--muted); max-width: 600px; }
+
+  /* 스택/스킬 태그 */
+  .tags { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 4px; }
+  .tag {
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--text);
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 7px 12px;
+  }
+
+  /* 프로젝트 카드 */
+  .project {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 22px 24px;
+    margin-bottom: 16px;
+    transition: border-color 0.15s, transform 0.15s;
+  }
+  .project:hover { border-color: var(--accent); transform: translateY(-2px); }
+  .project .ptitle {
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: 18px;
+    margin-bottom: 6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+  }
+  .project .pyear { font-family: var(--mono); font-size: 13px; color: var(--accent); }
+  .project .pdesc { color: var(--muted); font-size: 15px; }
+
+  /* 연락처 */
+  .links { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 6px; }
+  .links a {
+    font-family: var(--mono);
+    font-size: 14px;
+    color: var(--text);
+    text-decoration: none;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 2px;
+    transition: color 0.15s, border-color 0.15s;
+  }
+  .links a:hover { color: var(--accent); border-color: var(--accent); }
+
+  footer {
+    border-top: 1px solid var(--line);
+    padding: 28px 0 48px;
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  a:focus-visible, .project:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; scroll-behavior: auto; }
+  }
+</style>
+</head>
+
+<body>
+
+<div class="wrap">
+
+  <!-- 상단 계기판 바 (장식용 — 그냥 둬도 됨) -->
+  <div class="topbar">
+    <span><span class="dot">●</span> ONLINE</span>
+    <span>GWANGJU · KR</span>
+  </div>
+
+  <!-- ╔══════════════════════════════════════╗
+       ║  HERO — 첫 화면. 이름과 한 줄 소개      ║
+       ╚══════════════════════════════════════╝ -->
+  <header class="hero">
+    <div class="eyebrow">Robotics · Machine Learning</div>
+    <h1>안녕하세요,<br><span class="accent-name">한지민</span>입니다.</h1>
+    <!-- ↓ 자기 소개 한두 문장 -->
+    <p class="lead">
+      자율 비행 드론과 AI를 연구하는 대학원생입니다.
+      PX4 · ROS 2 기반 시뮬레이션부터 머신러닝 모델링까지,
+      문제를 끝까지 파고드는 걸 좋아합니다.
+    </p>
+  </header>
+
+  <!-- ╔══════════════════════════════════════╗
+       ║  ABOUT — 좀 더 자세한 소개            ║
+       ╚══════════════════════════════════════╝ -->
+  <section id="about">
+    <div class="eyebrow">About</div>
+    <h2>소개</h2>
+    <p class="about">
+      <!-- ↓ 여기에 본인 이야기를 자유롭게 적으세요 -->
+      드론 개발 연구실에서 PX4 + ROS 2 + Gazebo 시뮬레이션 환경을 다루며
+      자율 비행 제어를 연구하고 있습니다. 머신러닝, 데이터 마이닝,
+      데이터베이스 등 CS 전반에 관심이 있고, 기술이 가진 위험과 규제에 대한
+      논의에도 흥미를 느낍니다. 현재 AI 개발자로의 커리어를 준비하고 있습니다.
+    </p>
+  </section>
+
+  <!-- ╔══════════════════════════════════════╗
+       ║  STACK — 사용 기술 (태그만 수정)      ║
+       ╚══════════════════════════════════════╝ -->
+  <section id="stack">
+    <div class="eyebrow">Tech Stack</div>
+    <h2>다루는 기술</h2>
+    <div class="tags">
+      <!-- ↓ 항목 추가/삭제는 이 <span> 한 줄 단위로 -->
+      <span class="tag">Python</span>
+      <span class="tag">PyTorch</span>
+      <span class="tag">ROS 2</span>
+      <span class="tag">PX4</span>
+      <span class="tag">Gazebo</span>
+      <span class="tag">C++</span>
+      <span class="tag">XGBoost</span>
+      <span class="tag">Linux</span>
+      <span class="tag">Git</span>
+    </div>
+  </section>
+
+  <!-- ╔══════════════════════════════════════╗
+       ║  PROJECTS — 프로젝트 카드             ║
+       ║  카드 하나 = <a class="project">...   ║
+       ╚══════════════════════════════════════╝ -->
+  <section id="projects">
+    <div class="eyebrow">Selected Work</div>
+    <h2>프로젝트</h2>
+
+    <!-- ↓ 프로젝트 1 (href에 링크 주소 넣기. 없으면 "#" 그대로) -->
+    <a class="project" href="#">
+      <div class="ptitle"><span>자율 비행 오프보드 제어 노드</span><span class="pyear">2026</span></div>
+      <div class="pdesc">PX4 SITL + ROS 2 Jazzy 환경에서 rclpy 기반 오프보드 제어 노드를 구현해 arm·이륙 시퀀스를 검증.</div>
+    </a>
+
+    <!-- ↓ 프로젝트 2 -->
+    <a class="project" href="#">
+      <div class="ptitle"><span>배달 시간 예측 ML 앙상블</span><span class="pyear">2025</span></div>
+      <div class="pdesc">XGBoost·LightGBM·CatBoost 앙상블과 커스텀 피처 엔지니어링으로 MAPE 0.144 달성.</div>
+    </a>
+
+    <!-- ↓ 카드를 더 추가하려면 위 <a>...</a> 블록을 통째로 복사 -->
+
+  </section>
+
+  <!-- ╔══════════════════════════════════════╗
+       ║  CONTACT — 연락처/링크               ║
+       ╚══════════════════════════════════════╝ -->
+  <section id="contact">
+    <div class="eyebrow">Contact</div>
+    <h2>연락처</h2>
+    <div class="links">
+      <!-- ↓ 주소 부분(href)과 보이는 글자만 바꾸면 됩니다 -->
+      <a href="mailto:your@email.com">your@email.com</a>
+      <a href="https://github.com/hanjm0619-ux" target="_blank" rel="noopener">GitHub</a>
+      <a href="#" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <div class="wrap">© 2026 한지민 · Built with GitHub Pages</div>
+</footer>
+
+</body>
+</html>
