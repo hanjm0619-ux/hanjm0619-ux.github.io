@@ -4,6 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+
 <!-- ╔════════════════════════════════════════════════════════╗
      ║  여기 <title> 안의 글자가 브라우저 탭에 표시됩니다       ║
      ╚════════════════════════════════════════════════════════╝ -->
@@ -12,6 +13,21 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+
+<div class="reveal">스크롤하면 나타나는 글자</div>
+
+<style>
+.reveal { opacity: 0; transform: translateY(30px); transition: 0.8s; }
+.reveal.show { opacity: 1; transform: translateY(0); }
+</style>
+
+<script>
+const io = new IntersectionObserver(es =>
+  es.forEach(e => e.isIntersecting && e.target.classList.add('show')));
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+
 
 <style>
   :root {
